@@ -19,6 +19,7 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
     public AccountTypeTranslatorImpl(AccountTypeRepository accountTypeRepository) {
         this.accountTypeRepository = accountTypeRepository;
     }
+
     @Override
     public List<AccountTypeDto> getAllAccountTypes(){
         List<AccountTypeDto> accountTypeDtos = new ArrayList<>();
@@ -38,7 +39,36 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
             AccountType accountType = accountTypeRepository.save(accountTypeDto.getAccountType());
             return new AccountTypeDto(accountType);
         } catch(Exception e){
-            throw new RuntimeException("cant save to the database",e);
+            throw new RuntimeException("Unable to save to the database",e);
+        }
+    }
+
+    @Override
+    public AccountTypeDto getAccountTypeByMnemonicNativeQuery(String mnemonic) {
+        try{
+            AccountType accountType = accountTypeRepository.getAccountTypeByMnemonicNativeQuery(mnemonic);
+            return new AccountTypeDto(accountType);
+        } catch(Exception e){
+            throw new RuntimeException("Unable to save to the database",e);
+        }
+    }
+
+    @Override
+    public AccountTypeDto getAccountTypeByMnemonic(String mnemonic) {
+        try{
+            AccountType accountType = accountTypeRepository.getAccountTypeByMnemonic(mnemonic);
+            return new AccountTypeDto(accountType);
+        } catch(Exception e){
+            throw new RuntimeException("Unable to save to the database",e);
+        }
+    }
+
+    @Override
+    public AccountTypeDto getAccountTypeDtoByMnemonic(String mnemonic) {
+        try{
+            return accountTypeRepository.getAccountTypeDtoByMnemonic(mnemonic);
+        } catch(Exception e){
+            throw new RuntimeException("Unable to save to the database",e);
         }
     }
 

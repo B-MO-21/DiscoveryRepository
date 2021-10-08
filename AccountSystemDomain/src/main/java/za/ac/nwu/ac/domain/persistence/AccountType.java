@@ -15,7 +15,7 @@ public class AccountType implements Serializable {
     @SequenceGenerator(name= "VITALITY_SEQ", sequenceName= "ACCOUNT_SYSTEM.VITALITY_SEQ", allocationSize = 1)
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator= "VITALITY_SEQ")
 
-    private Long accountTypeId;
+    private String accountTypeId;
     private String mnemonic;
     private String accountTypeName;
     private LocalDate creationDate;
@@ -23,7 +23,7 @@ public class AccountType implements Serializable {
     public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
     }
 
-    public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
+    public AccountType(String accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
         this.accountTypeId = accountTypeId;
         this.mnemonic = mnemonic;
         this.accountTypeName = accountTypeName;
@@ -31,11 +31,11 @@ public class AccountType implements Serializable {
     }
     @Id
     @Column(name= "ACCOUNT_TYPE_ID")
-    public Long getAccountTypeId() {
+    public String getAccountTypeId() {
         return accountTypeId;
     }
 
-    public void setAccountTypeId(Long accountTypeId) {
+    public void setAccountTypeId(String accountTypeId) {
         this.accountTypeId = accountTypeId;
     }
 

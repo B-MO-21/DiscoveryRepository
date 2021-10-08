@@ -21,6 +21,10 @@ public class AccountTypeDto implements Serializable {
     private String accountTypeName;
     private LocalDate creationDate;
 
+    public AccountTypeDto(AccountTypeDto accountType) {
+
+    }
+
     public AccountTypeDto() {
 
     }
