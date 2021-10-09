@@ -44,6 +44,13 @@
             <scope>compile</scope>
         </dependency>
 
+<!--        dependency to for integrated DB-->
+<!--        <dependency>-->
+<!--            <groupId>com.h2database</groupId>-->
+<!--            <artifactId>h2</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
 <!--        added this Dependency to fix a Swagger Error-->
         <dependency>
             <groupId>javax.validation</groupId>
